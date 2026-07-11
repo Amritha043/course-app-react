@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import NavigationBar from './NavigationBar'
 
 const ViewCourse = () => {
      const [data,changeData]=useState([])
@@ -17,8 +18,9 @@ const ViewCourse = () => {
     )
   return (
     <div>
+        <NavigationBar/>
          <div className="container mt-4 c1">
-        <h2 className="text-center mb-4">View All REGISTRATION</h2>
+        <h2 className="text-center mb-4 text-light">View All COURSES</h2>
 
         <table className="table table-striped">
           <thead>
