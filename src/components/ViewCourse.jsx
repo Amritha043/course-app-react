@@ -5,7 +5,7 @@ import NavigationBar from './NavigationBar'
 const ViewCourse = () => {
      const [data,changeData]=useState([])
     const fetchData =()=>{
-        axios.get(" https://host-demo-app.onrender.com/api/courses").then(
+        axios.get("https://host-demo-app.onrender.com/api/courses").then(
             (response)=>{
                 changeData(response.data)
             }
@@ -19,47 +19,57 @@ const ViewCourse = () => {
   return (
     <div>
         <NavigationBar/>
-         <div className="container mt-4 c1">
-        <h2 className="text-center mb-4 text-light">View All COURSES</h2>
+        <div className="container mt-5">
+    <h2 className="heading text-center mb-4">
+        All Courses
+    </h2>
 
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>Course_name</th>
-              <th>Created_at</th>
-              <th>Duration</th>
-              <th>Fee</th>
-              <th>Id</th>
-             
-              <th>Mode</th>
-              <th>trainer</th>
-              
-            </tr>
-          </thead>
+    <div className="row g-4">
+        {
+            data.map((value, index) => (
+                <div className="col-12 col-sm-6 col-lg-4" key={index}>
+                    <div className="card course-card h-100">
 
-          <tbody>
-           
-           {
-            data.map(
-                (value,index)=>{
-                    return(
-                        <tr>
-              <td>{value.course_name}</td>
-              <td>{value.created_at}</td>
-              <td>{value.duration}</td>
-              <td>{value.fee}</td>  
-              <td>{value.id}</td> 
-              <td>{value.mode}</td> 
-               <td>{value. trainer}</td> 
-              
-            </tr>
-                    )
-                }
-            )
-           }
-          </tbody>
-        </table>
-      </div>
+                        <div className="card-header text-center">
+                            <h4>{value.course_name}</h4>
+                        </div>
+
+                        <div className="card-body">
+
+                            <p>
+                                <strong> Duration:</strong><br />
+                                {value.duration}
+                            </p>
+
+                            <p>
+                                <strong> Fee:</strong><br />
+                                ₹ {value.fee}
+                            </p>
+
+                            <p>
+                                <strong> Mode:</strong><br />
+                                {value.mode}
+                            </p>
+
+                            <p>
+                                <strong> Trainer:</strong><br />
+                                {value.trainer}
+                            </p>
+
+                        </div>
+
+                        <div className="card-footer text-center">
+                            <small className="text-muted">
+                                Course ID : {value.id}
+                            </small>
+                        </div>
+
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</div>
     </div>
   )
 }
