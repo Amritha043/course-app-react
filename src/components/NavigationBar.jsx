@@ -4,42 +4,46 @@ import { Link } from 'react-router-dom'
 const NavigationBar = () => {
   return (
     <div>
-         <nav className="navbar navbar-expand-lg ">
-      <div className="container-fluid">
+        <nav className="navbar navbar-expand-lg">
 
-      
+<div className="container-fluid">
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+<Link className="navbar-brand text-white fw-bold" to="/">
+Course Portal
+</Link>
 
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-               
-              <Link className="nav-link " to="/">
-                INSERT COURSE
-              </Link>
-            </li>
+<button
+className="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav"
+>
+<span className="navbar-toggler-icon"></span>
+</button>
 
-           
+<div className="collapse navbar-collapse" id="navbarNav">
 
-            <li className="nav-item ">
-              <Link className="nav-link " to="/view">
-                VIEW COURSE
-              </Link>
-            </li>
+<ul className="navbar-nav ms-auto">
 
-            
-          </ul>
-        </div>
-      </div>
-    </nav>
+<li className="nav-item">
+<Link className="nav-link" to="/">
+Insert Course
+</Link>
+</li>
+
+<li className="nav-item">
+<Link className="nav-link" to="/view">
+View Courses
+</Link>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
     </div>
   )
 }
